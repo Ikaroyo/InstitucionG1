@@ -12,6 +12,8 @@ import java.time.LocalDate;
  * @author Barbara
  */
 public class Alumno {
+    
+    // Atributos//
 
     private int idAlumno;
     private String nombre;
