@@ -30,7 +30,7 @@ public class MateriaData {
         }
     }
 
-    public void insetarMateria(Materia materia) {
+    public void guardarMateria(Materia materia) {
         String sql = "INSERT INTO materia (nombre, anioMateria,  activo)  VALUES (?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -50,7 +50,7 @@ public class MateriaData {
 
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error de conexion desde insertar materia" + ex);
+            JOptionPane.showMessageDialog(null, "Error de conexion desde insertar materia" + ex.getMessage());
 
         }
     }
@@ -73,7 +73,7 @@ public class MateriaData {
                 materia.setActivo(rs.getBoolean("activo"));
 
             }
-            JOptionPane.showMessageDialog(null, " Materia encontrada");
+            JOptionPane.showMessageDialog(null, " Materia encontrada :"+" "+ materia.getNombre());
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, " La materia ingresada es inexistente " + ex);
@@ -120,7 +120,7 @@ public class MateriaData {
             int rs = ps.executeUpdate();
 
             if (rs > 0) {
-                JOptionPane.showMessageDialog(null, "Materia borrada ");
+                JOptionPane.showMessageDialog(null, "Materia borrada exitosamente" );
             } else {
                 JOptionPane.showMessageDialog(null, "Error, ingresÃ³ una materia inexistente ");
             }
@@ -168,6 +168,28 @@ public class MateriaData {
 
             if (rs > 0) {
                 JOptionPane.showMessageDialog(null, "Se activo el estado de la materia ");
+            } else {
+                JOptionPane.showMessageDialog(null, "Error, la materia ingresada no existe ");
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error de conexion desde activar materia " + ex);
+
+        }
+    }
+    
+        public void desactivarMateria(int idMateria) {
+
+        String sql = "UPDATE materia SET activo =0 WHERE idMateria=?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, idMateria);
+
+            int rs = ps.executeUpdate();
+
+            if (rs > 0) {
+                JOptionPane.showMessageDialog(null, "Se desactivo el estado de la materia ");
             } else {
                 JOptionPane.showMessageDialog(null, "Error, la materia ingresada no existe ");
             }

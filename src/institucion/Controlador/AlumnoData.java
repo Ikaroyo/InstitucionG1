@@ -33,7 +33,7 @@ public class AlumnoData {
     }
 
     // agrega y  guarda al alumno en la base de datos//    
-    public void insertarAlumno(Alumno alumno) {
+    public void guardarAlumno(Alumno alumno) {
 
         String sql = "INSERT INTO alumno (nombre, apellido, fechaNac, activo)  VALUES (?, ?, ?, ?)";
         try {
@@ -72,6 +72,8 @@ public class AlumnoData {
             ps.setInt(1, idAlumno);
 
             ResultSet rs = ps.executeQuery();
+            
+            if( rs.wasNull()== false){
 
             while (rs.next()) {
                 alumno = new Alumno();
@@ -83,9 +85,12 @@ public class AlumnoData {
 
             }
             JOptionPane.showMessageDialog(null, " Id de Alumno encontrado");
+            } else {
+              JOptionPane.showMessageDialog(null, " Id de Alumno inexistente");  
+            }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, " Id de alumno inexistente " + ex);
+            JOptionPane.showMessageDialog(null, " Error de conexion desde buscar alumno " + ex);
 
         }
 
@@ -130,7 +135,7 @@ public class AlumnoData {
             int rs = ps.executeUpdate();
 
             if (rs > 0) {
-                JOptionPane.showMessageDialog(null, "se modifico ");
+                JOptionPane.showMessageDialog(null, " se modifico ");
             } else {
                 JOptionPane.showMessageDialog(null, " no se modifico ");
             }
@@ -154,6 +159,28 @@ public class AlumnoData {
 
             if (rs > 0) {
                 JOptionPane.showMessageDialog(null, "Se activo el estado del alumno ");
+            } else {
+                JOptionPane.showMessageDialog(null, "id no existe ");
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error de conexion desde insertar alumno " + ex);
+
+        }
+    }
+    
+       public void desactivarAlumno(int idAlumno) {
+
+        String sql = "UPDATE alumno SET activo =0 WHERE idAlumno=?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, idAlumno);
+
+            int rs = ps.executeUpdate();
+
+            if (rs > 0) {
+                JOptionPane.showMessageDialog(null, "Se desactivo el estado del alumno ");
             } else {
                 JOptionPane.showMessageDialog(null, "id no existe ");
             }

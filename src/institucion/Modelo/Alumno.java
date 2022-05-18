@@ -12,9 +12,8 @@ import java.time.LocalDate;
  * @author Barbara
  */
 public class Alumno {
-    
-    // Atributos//
 
+    // Atributos//
     private int idAlumno;
     private String nombre;
     private String apellido;
@@ -79,10 +78,9 @@ public class Alumno {
         this.activo = activo;
     }
 
-
     @Override
     public String toString() {
-        return nombre + " " + apellido;
+        return "Alumno{" + "idAlumno=" + idAlumno + ", nombre=" + nombre + ", apellido=" + apellido + ", fechaNac=" + fechaNac + ", activo=" + activo + '}';
     }
 
 }
