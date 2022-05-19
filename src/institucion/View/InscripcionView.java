@@ -5,16 +5,18 @@
  */
 package institucion.View;
 
+import institucion.Controlador.Conexion;
+
 /**
  *
  * @author Barbara
  */
 public class InscripcionView extends javax.swing.JInternalFrame {
-
+    Conexion conexion = new Conexion(); 
     /**
      * Creates new form InscripcionView
      */
-    public InscripcionView() {
+    public InscripcionView() throws ClassNotFoundException {
         initComponents();
     }
 

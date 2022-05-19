@@ -4,16 +4,18 @@
  */
 package institucion.View;
 
+import institucion.Controlador.Conexion;
+
 /**
  *
  * @author Ikaros
  */
 public class ListaAlumnosxMateria extends javax.swing.JInternalFrame {
-
+    Conexion conexion = new Conexion(); 
     /**
      * Creates new form jListaAlumnosxMateria
      */
-    public ListaAlumnosxMateria() {
+    public ListaAlumnosxMateria() throws ClassNotFoundException {
         initComponents();
     }
 

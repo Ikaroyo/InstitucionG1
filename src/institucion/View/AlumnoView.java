@@ -5,16 +5,18 @@
  */
 package institucion.View;
 
+import institucion.Controlador.Conexion;
+
 /**
  *
  * @author Barbara
  */
 public class AlumnoView extends javax.swing.JInternalFrame {
-
+    Conexion conexion = new Conexion(); 
     /**
      * Creates new form AlumnoView
      */
-    public AlumnoView() {
+    public AlumnoView() throws ClassNotFoundException {
         initComponents();
     }
 

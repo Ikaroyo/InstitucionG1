@@ -5,16 +5,22 @@
  */
 package institucion.View;
 
+import institucion.Controlador.Conexion;
+import institucion.Controlador.MateriaData;
+import institucion.Modelo.Materia;
+
 /**
  *
  * @author Barbara
  */
 public class MateriaView extends javax.swing.JInternalFrame {
 
+    Conexion conexion = new Conexion();
+
     /**
      * Creates new form MateriaView
      */
-    public MateriaView() {
+    public MateriaView() throws ClassNotFoundException {
         initComponents();
     }
 
@@ -59,14 +65,34 @@ public class MateriaView extends javax.swing.JInternalFrame {
         jcEstado.setText("Estado");
 
         jbBuscar.setText("Buscar");
+        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuscarActionPerformed(evt);
+            }
+        });
 
         jbLimpiar.setText("Limpiar");
 
         jbActualizar.setText("Actualizar");
+        jbActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbActualizarActionPerformed(evt);
+            }
+        });
 
         jbBorrar.setText("Borrar");
+        jbBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBorrarActionPerformed(evt);
+            }
+        });
 
         jbGuardar.setText("Guardar");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -149,6 +175,34 @@ public class MateriaView extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+        MateriaData md = new MateriaData(conexion);
+        Materia mate = new Materia(jtNombreMateria.getText(), Integer.parseInt(jtAnioMateria.getText()), jcEstado.isSelected());
+        md.guardarMateria(mate);
+    }//GEN-LAST:event_jbGuardarActionPerformed
+
+    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
+        jtNombreMateria.setText("");
+        jtAnioMateria.setText("");
+        jcEstado.setEnabled(false);
+        MateriaData md = new MateriaData(conexion);
+        Materia mate = md.buscarMateria(Integer.parseInt(jtCodigoMateria.getText()));
+        jtNombreMateria.setText(mate.getNombre());
+        jtAnioMateria.setText(Integer.toString(mate.getAnioMateria()));
+        jcEstado.setSelected(mate.isActivo());
+    }//GEN-LAST:event_jbBuscarActionPerformed
+
+    private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
+        MateriaData md = new MateriaData(conexion);
+        md.borrarMateria(Integer.parseInt(jtCodigoMateria.getText()));
+    }//GEN-LAST:event_jbBorrarActionPerformed
+
+    private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
+        MateriaData md = new MateriaData(conexion);
+        Materia mate = new Materia(jtNombreMateria.getText(), Integer.parseInt(jtAnioMateria.getText()), jcEstado.isSelected());
+        md.modificarMateria(mate, Integer.parseInt(jtCodigoMateria.getText()));
+    }//GEN-LAST:event_jbActualizarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

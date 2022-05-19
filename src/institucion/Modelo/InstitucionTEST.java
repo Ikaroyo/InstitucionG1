@@ -182,7 +182,7 @@ public class InstitucionTEST {
 //
 //                   id.borrarInscripcionDeUnaMateriaDeunAlumno(4, 4);
 
-                     id.actualizarNotaCursada(2, 3, 10);
+//                     id.actualizarNotaCursada(2, 3, 10);
 
 
             
