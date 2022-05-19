@@ -230,6 +230,7 @@ public class InscripcionData {
             statement.close();
     
         } catch (SQLException ex) {
+            
             System.out.println("Error al insertar un alumno: " + ex.getMessage());
         }
            
