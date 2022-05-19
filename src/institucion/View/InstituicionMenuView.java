@@ -90,6 +90,11 @@ public class InstituicionMenuView extends javax.swing.JFrame {
         jAlumnos.setText("Alumnos");
 
         jFormulariodeAlumnos.setText("Formulario de Alumnos");
+        jFormulariodeAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormulariodeAlumnosActionPerformed(evt);
+            }
+        });
         jAlumnos.add(jFormulariodeAlumnos);
 
         jMenuBar1.add(jAlumnos);
@@ -150,6 +155,15 @@ public class InstituicionMenuView extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jSalirActionPerformed
+
+    private void jFormulariodeAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormulariodeAlumnosActionPerformed
+        escritorio.removeAll();
+        AlumnoView agregar = new AlumnoView();
+        agregar.setVisible(true);
+        escritorio.add(agregar);
+        escritorio.repaint();
+        escritorio.moveToFront(agregar);
+    }//GEN-LAST:event_jFormulariodeAlumnosActionPerformed
 
     /**
      * @param args the command line arguments
