@@ -52,8 +52,8 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jFechaNac" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jtFechaNac" min="-2" pref="91" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jFechaN" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -101,12 +101,12 @@
                   <Component id="jNombreAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jtNombreAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jFechaNac" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jtFechaNac" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jFechaNac" min="-2" max="-2" attributes="0"/>
+                  <Component id="jFechaN" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Component id="jcEstado" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -115,7 +115,7 @@
                   <Component id="jbActualizar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jbLimpiar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="19" pref="38" max="32767" attributes="0"/>
+              <EmptySpace min="19" pref="42" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -140,6 +140,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtidAlumno">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jbBuscar">
       <Properties>
@@ -153,11 +156,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Apellido"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jtFechaNac">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtFechaNacActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jNombreAlumno">
       <Properties>
@@ -209,6 +207,11 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Guardar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbGuardarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="jFechaN">
     </Component>
   </SubComponents>
 </Form>

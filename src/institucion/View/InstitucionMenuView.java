@@ -12,12 +12,12 @@ import java.util.logging.Logger;
  *
  * @author Barbara
  */
-public class InstituicionMenuView extends javax.swing.JFrame {
+public class InstitucionMenuView extends javax.swing.JFrame {
 
     /**
      * Creates new form InstituicionMenuView
      */
-    public InstituicionMenuView() {
+    public InstitucionMenuView() {
         initComponents();
         setSize(875, 700);
         setLocationRelativeTo(null);
@@ -172,7 +172,7 @@ public class InstituicionMenuView extends javax.swing.JFrame {
             escritorio.repaint();
             escritorio.moveToFront(agregar);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(InstituicionMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InstitucionMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_jFormulariodeMateriasActionPerformed
@@ -192,7 +192,7 @@ public class InstituicionMenuView extends javax.swing.JFrame {
             escritorio.repaint();
             escritorio.moveToFront(agregar);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(InstituicionMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InstitucionMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jFormulariodeAlumnosActionPerformed
 
@@ -206,7 +206,7 @@ public class InstituicionMenuView extends javax.swing.JFrame {
             escritorio.repaint();
             escritorio.moveToFront(agregar);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(InstituicionMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InstitucionMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jManejodeInscripcionesActionPerformed
 
@@ -220,7 +220,7 @@ public class InstituicionMenuView extends javax.swing.JFrame {
             escritorio.repaint();
             escritorio.moveToFront(agregar);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(InstituicionMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InstitucionMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jManipulaciondeNotasActionPerformed
 
@@ -234,7 +234,7 @@ public class InstituicionMenuView extends javax.swing.JFrame {
             escritorio.repaint();
             escritorio.moveToFront(agregar);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(InstituicionMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InstitucionMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jListadodeAlumnosxMateriaActionPerformed
 
@@ -255,20 +255,21 @@ public class InstituicionMenuView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InstituicionMenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InstitucionMenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InstituicionMenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InstitucionMenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InstituicionMenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InstitucionMenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InstituicionMenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InstitucionMenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InstituicionMenuView().setVisible(true);
+                new InstitucionMenuView().setVisible(true);
             }
         });
     }
