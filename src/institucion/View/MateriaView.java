@@ -8,6 +8,7 @@ package institucion.View;
 import institucion.Controlador.Conexion;
 import institucion.Controlador.MateriaData;
 import institucion.Modelo.Materia;
+import java.util.Objects;
 
 /**
  *
@@ -188,9 +189,12 @@ public class MateriaView extends javax.swing.JInternalFrame {
         jcEstado.setEnabled(false);
         MateriaData md = new MateriaData(conexion);
         Materia mate = md.buscarMateria(Integer.parseInt(jtCodigoMateria.getText()));
-        jtNombreMateria.setText(mate.getNombre());
-        jtAnioMateria.setText(Integer.toString(mate.getAnioMateria()));
-        jcEstado.setSelected(mate.isActivo());
+        if (!Objects.isNull(mate)) {
+            jtNombreMateria.setText(mate.getNombre());
+            jtAnioMateria.setText(Integer.toString(mate.getAnioMateria()));
+            jcEstado.setSelected(mate.isActivo());
+        }
+
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed

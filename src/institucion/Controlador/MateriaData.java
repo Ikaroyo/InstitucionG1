@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.swing.JOptionPane;
 
 /**
@@ -73,7 +74,12 @@ public class MateriaData {
                 materia.setActivo(rs.getBoolean("activo"));
 
             }
-            JOptionPane.showMessageDialog(null, " Materia encontrada :"+" "+ materia.getNombre());
+            if (Objects.isNull(materia)){
+                            JOptionPane.showMessageDialog(null, " Materia no encontrada");
+            }else {
+                            JOptionPane.showMessageDialog(null, " Materia encontrada :"+" "+ materia.getNombre());
+            }
+
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, " La materia ingresada es inexistente " + ex);
