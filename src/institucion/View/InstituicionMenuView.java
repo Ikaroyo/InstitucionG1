@@ -16,6 +16,8 @@ public class InstituicionMenuView extends javax.swing.JFrame {
      */
     public InstituicionMenuView() {
         initComponents();
+        setSize(875, 700);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -102,6 +104,11 @@ public class InstituicionMenuView extends javax.swing.JFrame {
         jInscripciones.setText("Inscripciones");
 
         jManejodeInscripciones.setText("Manejo de Inscripciones");
+        jManejodeInscripciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jManejodeInscripcionesActionPerformed(evt);
+            }
+        });
         jInscripciones.add(jManejodeInscripciones);
 
         jMenuBar1.add(jInscripciones);
@@ -109,6 +116,11 @@ public class InstituicionMenuView extends javax.swing.JFrame {
         jCargadeNotas.setText("Carga de Notas");
 
         jManipulaciondeNotas.setText("Carga de Notas");
+        jManipulaciondeNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jManipulaciondeNotasActionPerformed(evt);
+            }
+        });
         jCargadeNotas.add(jManipulaciondeNotas);
 
         jMenuBar1.add(jCargadeNotas);
@@ -116,6 +128,11 @@ public class InstituicionMenuView extends javax.swing.JFrame {
         jConsultas.setText("Consultas");
 
         jListadodeAlumnosxMateria.setText("Listado de Alumnos x Materia");
+        jListadodeAlumnosxMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jListadodeAlumnosxMateriaActionPerformed(evt);
+            }
+        });
         jConsultas.add(jListadodeAlumnosxMateria);
 
         jMenuBar1.add(jConsultas);
@@ -164,6 +181,33 @@ public class InstituicionMenuView extends javax.swing.JFrame {
         escritorio.repaint();
         escritorio.moveToFront(agregar);
     }//GEN-LAST:event_jFormulariodeAlumnosActionPerformed
+
+    private void jManejodeInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jManejodeInscripcionesActionPerformed
+        escritorio.removeAll();
+        InscripcionView agregar = new InscripcionView();
+        agregar.setVisible(true);
+        escritorio.add(agregar);
+        escritorio.repaint();
+        escritorio.moveToFront(agregar);
+    }//GEN-LAST:event_jManejodeInscripcionesActionPerformed
+
+    private void jManipulaciondeNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jManipulaciondeNotasActionPerformed
+        escritorio.removeAll();
+        CargaNotas agregar = new CargaNotas();
+        agregar.setVisible(true);
+        escritorio.add(agregar);
+        escritorio.repaint();
+        escritorio.moveToFront(agregar);
+    }//GEN-LAST:event_jManipulaciondeNotasActionPerformed
+
+    private void jListadodeAlumnosxMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jListadodeAlumnosxMateriaActionPerformed
+        escritorio.removeAll();
+        ListaAlumnosxMateria agregar = new ListaAlumnosxMateria();
+        agregar.setVisible(true);
+        escritorio.add(agregar);
+        escritorio.repaint();
+        escritorio.moveToFront(agregar);
+    }//GEN-LAST:event_jListadodeAlumnosxMateriaActionPerformed
 
     /**
      * @param args the command line arguments
