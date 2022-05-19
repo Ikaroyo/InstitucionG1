@@ -35,6 +35,8 @@ public class CargaNotas extends javax.swing.JInternalFrame {
         jbCancelar = new javax.swing.JButton();
         jbGuardar = new javax.swing.JButton();
 
+        setClosable(true);
+
         jMATERIAS.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jMATERIAS.setText("-Carga de Notas-");
 

@@ -33,6 +33,8 @@ public class ListaAlumnosxMateria extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
+        setClosable(true);
+
         jMATERIAS.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jMATERIAS.setText("-Listado de Alumnos por Materia-");
 

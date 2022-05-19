@@ -39,6 +39,8 @@ public class InscripcionView extends javax.swing.JInternalFrame {
         jbInscribir = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
 
+        setClosable(true);
+
         jMATERIAS.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jMATERIAS.setText("- Formulario de Inscripcion-");
 

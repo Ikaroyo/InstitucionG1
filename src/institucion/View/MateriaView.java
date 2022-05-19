@@ -42,6 +42,8 @@ public class MateriaView extends javax.swing.JInternalFrame {
         jbBorrar = new javax.swing.JButton();
         jbGuardar = new javax.swing.JButton();
 
+        setClosable(true);
+
         jMATERIAS.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jMATERIAS.setText("-Materias-");
 
