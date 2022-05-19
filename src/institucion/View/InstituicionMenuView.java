@@ -5,6 +5,9 @@
  */
 package institucion.View;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Barbara
@@ -161,11 +164,17 @@ public class InstituicionMenuView extends javax.swing.JFrame {
     private void jFormulariodeMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormulariodeMateriasActionPerformed
         // TODO add your handling code here:
         escritorio.removeAll();
-        MateriaView agregar = new MateriaView();
-        agregar.setVisible(true);
-        escritorio.add(agregar);
-        escritorio.repaint();
-        escritorio.moveToFront(agregar);
+        MateriaView agregar;
+        try {
+            agregar = new MateriaView();
+            agregar.setVisible(true);
+            escritorio.add(agregar);
+            escritorio.repaint();
+            escritorio.moveToFront(agregar);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(InstituicionMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_jFormulariodeMateriasActionPerformed
 
     private void jSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSalirActionPerformed
@@ -175,38 +184,58 @@ public class InstituicionMenuView extends javax.swing.JFrame {
 
     private void jFormulariodeAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormulariodeAlumnosActionPerformed
         escritorio.removeAll();
-        AlumnoView agregar = new AlumnoView();
-        agregar.setVisible(true);
-        escritorio.add(agregar);
-        escritorio.repaint();
-        escritorio.moveToFront(agregar);
+        AlumnoView agregar;
+        try {
+            agregar = new AlumnoView();
+            agregar.setVisible(true);
+            escritorio.add(agregar);
+            escritorio.repaint();
+            escritorio.moveToFront(agregar);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(InstituicionMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jFormulariodeAlumnosActionPerformed
 
     private void jManejodeInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jManejodeInscripcionesActionPerformed
         escritorio.removeAll();
-        InscripcionView agregar = new InscripcionView();
-        agregar.setVisible(true);
-        escritorio.add(agregar);
-        escritorio.repaint();
-        escritorio.moveToFront(agregar);
+        InscripcionView agregar;
+        try {
+            agregar = new InscripcionView();
+            agregar.setVisible(true);
+            escritorio.add(agregar);
+            escritorio.repaint();
+            escritorio.moveToFront(agregar);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(InstituicionMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jManejodeInscripcionesActionPerformed
 
     private void jManipulaciondeNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jManipulaciondeNotasActionPerformed
         escritorio.removeAll();
-        CargaNotas agregar = new CargaNotas();
-        agregar.setVisible(true);
-        escritorio.add(agregar);
-        escritorio.repaint();
-        escritorio.moveToFront(agregar);
+        CargaNotas agregar;
+        try {
+            agregar = new CargaNotas();
+            agregar.setVisible(true);
+            escritorio.add(agregar);
+            escritorio.repaint();
+            escritorio.moveToFront(agregar);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(InstituicionMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jManipulaciondeNotasActionPerformed
 
     private void jListadodeAlumnosxMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jListadodeAlumnosxMateriaActionPerformed
         escritorio.removeAll();
-        ListaAlumnosxMateria agregar = new ListaAlumnosxMateria();
-        agregar.setVisible(true);
-        escritorio.add(agregar);
-        escritorio.repaint();
-        escritorio.moveToFront(agregar);
+        ListaAlumnosxMateria agregar;
+        try {
+            agregar = new ListaAlumnosxMateria();
+            agregar.setVisible(true);
+            escritorio.add(agregar);
+            escritorio.repaint();
+            escritorio.moveToFront(agregar);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(InstituicionMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jListadodeAlumnosxMateriaActionPerformed
 
     /**
