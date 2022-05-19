@@ -66,6 +66,11 @@ public class InstituicionMenuView extends javax.swing.JFrame {
         });
 
         jSalir.setText("Salir");
+        jSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jSalirActionPerformed(evt);
+            }
+        });
         jArchivo.add(jSalir);
 
         jMenuBar1.add(jArchivo);
@@ -140,6 +145,11 @@ public class InstituicionMenuView extends javax.swing.JFrame {
         escritorio.repaint();
         escritorio.moveToFront(agregar);
     }//GEN-LAST:event_jFormulariodeMateriasActionPerformed
+
+    private void jSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jSalirActionPerformed
 
     /**
      * @param args the command line arguments
