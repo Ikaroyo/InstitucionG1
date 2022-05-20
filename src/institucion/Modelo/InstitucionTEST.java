@@ -155,7 +155,7 @@ public class InstitucionTEST {
 //     
 //                 System.out.println(it.hasNext());
 //                 }
-//------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------//
 //            List<Materia> matCursadas = id.obtenerMateriasCursadas(6);
 //
 //            for (Materia m : matCursadas) {
