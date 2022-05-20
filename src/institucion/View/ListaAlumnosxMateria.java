@@ -4,15 +4,17 @@
  */
 package institucion.View;
 
-import institucion.Controlador.AlumnoData;
-import institucion.Controlador.Conexion;
+
+/*Franco
 import institucion.Controlador.InscripcionData;
 import institucion.Controlador.MateriaData;
-import institucion.Modelo.Alumno;
-import institucion.Modelo.Materia;
-import java.util.List;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import java.util.List;
+import institucion.Modelo.Alumno;
+ */
+import institucion.Controlador.Conexion;
+
+import institucion.Modelo.Materia;
 
 /**
  *
@@ -21,22 +23,26 @@ import javax.swing.table.DefaultTableModel;
 public class ListaAlumnosxMateria extends javax.swing.JInternalFrame {
 
     Conexion conexion = new Conexion();
+
+    /*Franco
     private List<Alumno> alumnos;
     private List<Materia> materias;
-
+     */
     /**
      * Creates new form jListaAlumnosxMateria
      */
     public ListaAlumnosxMateria() throws ClassNotFoundException {
         initComponents();
+
+        /* Franco
         this.alumnos = null;
-        
         MateriaData md = new MateriaData(conexion);
         this.materias = md.obtenerMaterias();
         agregarMateria();
-
+         */
     }
 
+    /*Franco
     private void agregarMateria() {
         for (Materia m1 : materias) {
 
@@ -45,9 +51,10 @@ public class ListaAlumnosxMateria extends javax.swing.JInternalFrame {
         }
 
     }
-
-
-/*
+     */
+    
+    
+ /*
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -138,17 +145,20 @@ public class ListaAlumnosxMateria extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cMateriaActionPerformed
+        /*Franco
         InscripcionData id = new InscripcionData(conexion);
         alumnos=id.obtenerAlumnosXMateria(((Materia) cMateria.getSelectedItem()).getIdMateria());
 
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
 
-        for (Alumno m1 : alumnos) {
-            
-        model.addRow(new Object[]{m1.getIdAlumno(), m1.getNombre(), m1.getApellido(),m1.getFechaNac()});
-            
+        for (Alumno m1 : alumnos) {            
+        model.addRow(new Object[]{m1.getIdAlumno(), m1.getNombre(), m1.getApellido(),m1.getFechaNac()});            
         }
+         */
+        
+        
+        
 
     }//GEN-LAST:event_cMateriaActionPerformed
 
