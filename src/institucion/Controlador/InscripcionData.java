@@ -118,7 +118,7 @@ public class InscripcionData {
         
         return inscripciones;
 }
-        public List<Inscripcion> obtenerInscripcionesXAlumno(int id){
+        public List<Inscripcion> obtenerInscripcionesXAlumno(int idAlumno){
             
             ArrayList<Inscripcion> inscripciones = new ArrayList<>();   
 
@@ -126,7 +126,7 @@ public class InscripcionData {
             String sql = "SELECT * FROM inscripcion WHERE idAlumno = ?;";
              
             PreparedStatement statement = con.prepareStatement(sql);
-            statement.setInt(1,id);
+            statement.setInt(1,idAlumno);
             
             ResultSet resultSet = statement.executeQuery();
             
@@ -156,7 +156,7 @@ public class InscripcionData {
         return inscripciones;
     }
         
-        public List<Materia> obtenerMateriasCursadas(int id){
+        public List<Materia> obtenerMateriasCursadas(int idAlumno){
         List<Materia> materias = new ArrayList<Materia>();
             
 
@@ -164,7 +164,7 @@ public class InscripcionData {
             String sql = "SELECT inscripcion.idMateria, nombre FROM inscripcion, materia WHERE inscripcion.idMateria = materia.idMateria\n" +
             "and inscripcion.idAlumno = ?;";
             PreparedStatement statement = con.prepareStatement(sql);
-            statement.setInt(1, id);
+            statement.setInt(1, idAlumno);
             ResultSet resultSet = statement.executeQuery();
             Materia materia;
             while(resultSet.next()){
@@ -185,7 +185,7 @@ public class InscripcionData {
       
     }
         
-            public List<Materia> obtenerMateriasNOCursadas(int id){
+            public List<Materia> obtenerMateriasNOCursadas(int idAlumno){
            List<Materia> materias = new ArrayList<Materia>();
             
 
@@ -193,7 +193,7 @@ public class InscripcionData {
             String sql = "Select * from materia where idMateria not in "
                     + "(select idMateria from inscripcion where idAlumno =?);";
             PreparedStatement statement = con.prepareStatement(sql);
-            statement.setInt(1, id);
+            statement.setInt(1, idAlumno);
             ResultSet resultSet = statement.executeQuery();
             Materia materia;
             while(resultSet.next()){
