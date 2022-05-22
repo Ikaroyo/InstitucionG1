@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  * @author Barbara
  */
 public class AlumnoView extends javax.swing.JInternalFrame {
-
+    
     Conexion conexion;
     AlumnoData ad;
 
@@ -34,21 +34,21 @@ public class AlumnoView extends javax.swing.JInternalFrame {
         ad = new AlumnoData(conexion);
         agregarOModificar();
     }
-
+    
     private void agregarOModificar() {
-        String[] options = {"Agregar Alumno", "Buscar/Modificar Alumno"};
-
+        String[] options = {"Agregar Alumno", "Buscar/Modificar/Actualizar Alumno"};
+        
         int x = JOptionPane.showOptionDialog(null, "¿Que desea realizar?",
                 "Selecciona una opcion",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
-        boolean layoutBoolean = x==0;
+        boolean layoutBoolean = x == 0;
         
         jbGuardar.setEnabled(layoutBoolean);
         jtidAlumno.setEnabled(!layoutBoolean);
         jbBuscar.setEnabled(!layoutBoolean);
-        jbBorrar.setEnabled(!layoutBoolean);
-        jbActualizar.setEnabled(!layoutBoolean);
-
+        jbBorrar.setEnabled(false);
+        jbActualizar.setEnabled(false);
+        
     }
 
     /**
@@ -83,7 +83,7 @@ public class AlumnoView extends javax.swing.JInternalFrame {
         jMATERIAS.setText("-Alumnos-");
 
         jLegajo.setBackground(new java.awt.Color(255, 255, 255));
-        jLegajo.setText("Lejajo");
+        jLegajo.setText("Legajo");
 
         jbBuscar.setText("Buscar");
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -270,9 +270,9 @@ public class AlumnoView extends javax.swing.JInternalFrame {
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         // TODO add your handling code here:
         Alumno encontrado = new Alumno();
-
+        
         encontrado = ad.buscarAlumno(Integer.parseInt(jtidAlumno.getText()));
-
+        
         if (Objects.nonNull(encontrado)) {
             jtApellidoAlumno.setText(encontrado.getApellido());
             jtNombreAlumno.setText(encontrado.getNombre());
@@ -282,20 +282,32 @@ public class AlumnoView extends javax.swing.JInternalFrame {
             Date date = Date.from(lc.atStartOfDay(ZoneId.systemDefault()).toInstant());
             jcFechaN.setDate(date);
 
-            JOptionPane.showMessageDialog(this, "Alumno encontrado");
+// Devuelve estado activo//           
+            jcEstado.setEnabled(encontrado.isActivo());
+            
+// BUSCAR : una vez encontrado://           
+// se bloquea idAlumno//
+          jtidAlumno.setEnabled(false);
+          
+// se activa:BORRAR y ACTUALIZAR //
+            jbBorrar.setEnabled(true);
+            jbActualizar.setEnabled(true);
+            
+            JOptionPane.showMessageDialog(this, "Alumno encontrado exitosamente");
         } else {
-
+            
             JOptionPane.showMessageDialog(this, "Alumno inexistente");
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
     private void limpiar() {
-
+        
+        jtidAlumno.setText("");
         jtApellidoAlumno.setText("");
         jtNombreAlumno.setText("");
         jcFechaN.setCalendar(null);
         jcEstado.setSelected(false);
         agregarOModificar();
-
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

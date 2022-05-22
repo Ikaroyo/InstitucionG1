@@ -84,7 +84,7 @@ public class AlumnoData {
                 alumno.setActivo(rs.getBoolean("activo"));
 
             }
-            JOptionPane.showMessageDialog(null, " Id de Alumno encontrado");
+  
             } else {
               JOptionPane.showMessageDialog(null, " Id de Alumno inexistente");  
             }
