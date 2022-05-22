@@ -4,19 +4,46 @@
  */
 package institucion.View;
 
+import institucion.Controlador.AlumnoData;
 import institucion.Controlador.Conexion;
+import institucion.Controlador.InscripcionData;
+import institucion.Modelo.Alumno;
+import institucion.Modelo.Inscripcion;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Ikaros
  */
 public class CargaNotas extends javax.swing.JInternalFrame {
-    Conexion conexion = new Conexion(); 
+
+    Conexion conexion = new Conexion();
+    private List<Alumno> alumnos = null;
+    private List<Inscripcion> inscripciones = null;
+
     /**
      * Creates new form CargaNotas
+     *
+     * @throws java.lang.ClassNotFoundException
      */
     public CargaNotas() throws ClassNotFoundException {
         initComponents();
+        agregarAlumnos();
+
+    }
+
+    private void agregarAlumnos() {
+        jcAlumnoNota.removeAllItems();;
+        AlumnoData ad = new AlumnoData(conexion);
+        this.alumnos = ad.obtenerAlumnos();
+
+        for (Alumno a1 : alumnos) {
+
+            jcAlumnoNota.addItem(a1);
+
+        }
+        
     }
 
     /**
@@ -31,11 +58,11 @@ public class CargaNotas extends javax.swing.JInternalFrame {
         jMATERIAS = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jAlumnoNota = new javax.swing.JLabel();
-        cAlumnoNota = new java.awt.Choice();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jbCancelar = new javax.swing.JButton();
         jbGuardar = new javax.swing.JButton();
+        jcAlumnoNota = new javax.swing.JComboBox<>();
 
         setClosable(true);
 
@@ -47,20 +74,34 @@ public class CargaNotas extends javax.swing.JInternalFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Materia", "Nota"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jbCancelar.setText("Cancelar");
 
         jbGuardar.setText("Guardar");
+
+        jcAlumnoNota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcAlumnoNotaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,8 +126,8 @@ public class CargaNotas extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jAlumnoNota)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cAlumnoNota, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jcAlumnoNota, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
@@ -96,11 +137,11 @@ public class CargaNotas extends javax.swing.JInternalFrame {
                 .addComponent(jMATERIAS, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jAlumnoNota)
-                    .addComponent(cAlumnoNota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                    .addComponent(jcAlumnoNota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -112,9 +153,22 @@ public class CargaNotas extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jcAlumnoNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcAlumnoNotaActionPerformed
+
+        InscripcionData id = new InscripcionData(conexion);
+        inscripciones = id.obtenerInscripcionesXAlumno(((Alumno) jcAlumnoNota.getSelectedItem()).getIdAlumno());
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        
+        for (Inscripcion i1 : inscripciones) {
+            model.addRow(new Object[]{i1.getMateria().getIdMateria(), i1.getMateria().getNombre(), i1.getNota()});
+        }
+
+    }//GEN-LAST:event_jcAlumnoNotaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Choice cAlumnoNota;
     private javax.swing.JLabel jAlumnoNota;
     private javax.swing.JLabel jMATERIAS;
     private javax.swing.JScrollPane jScrollPane1;
@@ -122,5 +176,6 @@ public class CargaNotas extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JButton jbCancelar;
     private javax.swing.JButton jbGuardar;
+    private javax.swing.JComboBox<Alumno> jcAlumnoNota;
     // End of variables declaration//GEN-END:variables
 }
