@@ -264,6 +264,8 @@ public class AlumnoView extends javax.swing.JInternalFrame {
 
     private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
         // TODO add your handling code here:
+        
+        
 
     }//GEN-LAST:event_jbBorrarActionPerformed
 
