@@ -21,19 +21,34 @@ import javax.swing.JOptionPane;
  * @author Barbara
  */
 public class AlumnoView extends javax.swing.JInternalFrame {
-    Conexion conexion ; 
+
+    Conexion conexion;
     AlumnoData ad;
-  
 
     /**
      * Creates new form AlumnoView
      */
     public AlumnoView() throws ClassNotFoundException {
         initComponents();
-        conexion = new Conexion(); 
+        conexion = new Conexion();
         ad = new AlumnoData(conexion);
+        agregarOModificar();
+    }
+
+    private void agregarOModificar() {
+        String[] options = {"Agregar Alumno", "Buscar/Modificar Alumno"};
+
+        int x = JOptionPane.showOptionDialog(null, "¿Que desea realizar?",
+                "Selecciona una opcion",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+        boolean layoutBoolean = x==0;
         
-     
+        jbGuardar.setEnabled(layoutBoolean);
+        jtidAlumno.setEnabled(!layoutBoolean);
+        jbBuscar.setEnabled(!layoutBoolean);
+        jbBorrar.setEnabled(!layoutBoolean);
+        jbActualizar.setEnabled(!layoutBoolean);
+
     }
 
     /**
@@ -237,8 +252,8 @@ public class AlumnoView extends javax.swing.JInternalFrame {
         Alumno a = new Alumno(nombre, apellido, fechNac, estado);
         ad.guardarAlumno(a);
 //        
-        
-        jtidAlumno.setText(a.getIdAlumno()+"");
+
+        jtidAlumno.setText(a.getIdAlumno() + "");
         // cargar casillero legajo con idAlumno recien creado//
     }//GEN-LAST:event_jbGuardarActionPerformed
 
@@ -249,40 +264,37 @@ public class AlumnoView extends javax.swing.JInternalFrame {
 
     private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
         // TODO add your handling code here:
-    
+
     }//GEN-LAST:event_jbBorrarActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         // TODO add your handling code here:
-        Alumno encontrado= new Alumno(); 
-        
-        encontrado = ad.buscarAlumno (Integer.parseInt(jtidAlumno.getText()));
+        Alumno encontrado = new Alumno();
+
+        encontrado = ad.buscarAlumno(Integer.parseInt(jtidAlumno.getText()));
 
         if (Objects.nonNull(encontrado)) {
             jtApellidoAlumno.setText(encontrado.getApellido());
             jtNombreAlumno.setText(encontrado.getNombre());
-  
+
 // Devuelve fecha de nacimiento //            
             LocalDate lc = encontrado.getFechaNac();
             Date date = Date.from(lc.atStartOfDay(ZoneId.systemDefault()).toInstant());
             jcFechaN.setDate(date);
 
-            
-            
             JOptionPane.showMessageDialog(this, "Alumno encontrado");
         } else {
 
             JOptionPane.showMessageDialog(this, "Alumno inexistente");
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
-   private void limpiar() {
+    private void limpiar() {
 
         jtApellidoAlumno.setText("");
         jtNombreAlumno.setText("");
         jcFechaN.setCalendar(null);
         jcEstado.setSelected(false);
-       
-        
+        agregarOModificar();
 
     }
 

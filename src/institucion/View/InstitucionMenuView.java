@@ -7,12 +7,15 @@ package institucion.View;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Barbara
  */
 public class InstitucionMenuView extends javax.swing.JFrame {
+
+    public boolean adminUser;
 
     /**
      * Creates new form InstituicionMenuView
@@ -21,6 +24,16 @@ public class InstitucionMenuView extends javax.swing.JFrame {
         initComponents();
         setSize(875, 700);
         setLocationRelativeTo(null);
+        adminUser = isAdministrador();
+    }
+
+    boolean isAdministrador() {
+        String[] options = {"Si", "No"};
+
+        int x = JOptionPane.showOptionDialog(null, "¿Es usted un administrador?",
+                "Selecciona una opcion",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+        return x == 0;
     }
 
     /**
@@ -163,17 +176,22 @@ public class InstitucionMenuView extends javax.swing.JFrame {
 
     private void jFormulariodeMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormulariodeMateriasActionPerformed
         // TODO add your handling code here:
-        escritorio.removeAll();
-        MateriaView agregar;
-        try {
-            agregar = new MateriaView();
-            agregar.setVisible(true);
-            escritorio.add(agregar);
-            escritorio.repaint();
-            escritorio.moveToFront(agregar);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(InstitucionMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        if (adminUser) {
+            escritorio.removeAll();
+            MateriaView agregar;
+            try {
+                agregar = new MateriaView();
+                agregar.setVisible(true);
+                escritorio.add(agregar);
+                escritorio.repaint();
+                escritorio.moveToFront(agregar);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(InstitucionMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Usted no tiene permiso de abrir esta ventana, no es un administrador");
         }
+
 
     }//GEN-LAST:event_jFormulariodeMateriasActionPerformed
 
@@ -183,17 +201,23 @@ public class InstitucionMenuView extends javax.swing.JFrame {
     }//GEN-LAST:event_jSalirActionPerformed
 
     private void jFormulariodeAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormulariodeAlumnosActionPerformed
-        escritorio.removeAll();
-        AlumnoView agregar;
-        try {
-            agregar = new AlumnoView();
-            agregar.setVisible(true);
-            escritorio.add(agregar);
-            escritorio.repaint();
-            escritorio.moveToFront(agregar);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(InstitucionMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        if (adminUser) {
+            escritorio.removeAll();
+            AlumnoView agregar;
+            try {
+                agregar = new AlumnoView();
+                agregar.setVisible(true);
+                escritorio.add(agregar);
+                escritorio.repaint();
+                escritorio.moveToFront(agregar);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(InstitucionMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Usted no tiene permiso de abrir esta ventana, no es un administrador");
         }
+
+
     }//GEN-LAST:event_jFormulariodeAlumnosActionPerformed
 
     private void jManejodeInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jManejodeInscripcionesActionPerformed
@@ -211,31 +235,43 @@ public class InstitucionMenuView extends javax.swing.JFrame {
     }//GEN-LAST:event_jManejodeInscripcionesActionPerformed
 
     private void jManipulaciondeNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jManipulaciondeNotasActionPerformed
-        escritorio.removeAll();
-        CargaNotas agregar;
-        try {
-            agregar = new CargaNotas();
-            agregar.setVisible(true);
-            escritorio.add(agregar);
-            escritorio.repaint();
-            escritorio.moveToFront(agregar);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(InstitucionMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        if (adminUser) {
+            escritorio.removeAll();
+            CargaNotas agregar;
+            try {
+                agregar = new CargaNotas();
+                agregar.setVisible(true);
+                escritorio.add(agregar);
+                escritorio.repaint();
+                escritorio.moveToFront(agregar);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(InstitucionMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Usted no tiene permiso de abrir esta ventana, no es un administrador");
         }
+
+
     }//GEN-LAST:event_jManipulaciondeNotasActionPerformed
 
     private void jListadodeAlumnosxMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jListadodeAlumnosxMateriaActionPerformed
-        escritorio.removeAll();
-        ListaAlumnosxMateria agregar;
-        try {
-            agregar = new ListaAlumnosxMateria();
-            agregar.setVisible(true);
-            escritorio.add(agregar);
-            escritorio.repaint();
-            escritorio.moveToFront(agregar);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(InstitucionMenuView.class.getName()).log(Level.SEVERE, null, ex);
+
+        if (adminUser) {
+            escritorio.removeAll();
+            ListaAlumnosxMateria agregar;
+            try {
+                agregar = new ListaAlumnosxMateria();
+                agregar.setVisible(true);
+                escritorio.add(agregar);
+                escritorio.repaint();
+                escritorio.moveToFront(agregar);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(InstitucionMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Usted no tiene permiso de abrir esta ventana, no es un administrador");
         }
+
     }//GEN-LAST:event_jListadodeAlumnosxMateriaActionPerformed
 
     /**
