@@ -53,7 +53,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jFechaNac" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jFechaN" min="-2" max="-2" attributes="0"/>
+                              <Component id="jcFechaN" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -104,7 +104,7 @@
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jFechaNac" min="-2" max="-2" attributes="0"/>
-                  <Component id="jFechaN" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcFechaN" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Component id="jcEstado" min="-2" max="-2" attributes="0"/>
@@ -140,14 +140,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtidAlumno">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jbBuscar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Buscar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbBuscarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLegajo1">
       <Properties>
@@ -192,6 +192,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Limpiar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbLimpiarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jbActualizar">
       <Properties>
@@ -202,6 +205,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Borrar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbBorrarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jbGuardar">
       <Properties>
@@ -211,7 +217,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbGuardarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="jFechaN">
+    <Component class="com.toedter.calendar.JDateChooser" name="jcFechaN">
     </Component>
   </SubComponents>
 </Form>
