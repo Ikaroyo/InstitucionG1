@@ -123,6 +123,11 @@ public class AlumnoView extends javax.swing.JInternalFrame {
         });
 
         jbActualizar.setText("Actualizar");
+        jbActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbActualizarActionPerformed(evt);
+            }
+        });
 
         jbBorrar.setText("Borrar");
         jbBorrar.addActionListener(new java.awt.event.ActionListener() {
@@ -264,7 +269,9 @@ public class AlumnoView extends javax.swing.JInternalFrame {
 
     private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
         // TODO add your handling code here:
+
         
+        ad.borrarAlumno(Integer.parseInt(jtidAlumno.getText())); 
         
 
     }//GEN-LAST:event_jbBorrarActionPerformed
@@ -301,6 +308,13 @@ public class AlumnoView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Alumno inexistente");
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
+
+    private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
+        // TODO add your handling code here:
+    // pendiente//
+
+        
+    }//GEN-LAST:event_jbActualizarActionPerformed
     private void limpiar() {
         
         jtidAlumno.setText("");

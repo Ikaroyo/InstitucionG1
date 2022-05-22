@@ -5,12 +5,12 @@
  */
 package institucion.View;
 
-/*Franco
+
 import institucion.Controlador.MateriaData;
 import institucion.Modelo.Materia;
 import java.util.Objects;
 import javax.swing.JOptionPane;
-*/
+
 
 import institucion.Controlador.Conexion;
 
@@ -183,7 +183,7 @@ public class MateriaView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
-        /*Franco
+
         MateriaData md = new MateriaData(conexion);
         if (!"".equals(jtNombreMateria.getText()) && !"".equals(jtAnioMateria.getText()) && jcEstado.isSelected()) {
             Materia mate = new Materia(jtNombreMateria.getText(), Integer.parseInt(jtAnioMateria.getText()), jcEstado.isSelected());
@@ -191,13 +191,13 @@ public class MateriaView extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Revise los campos: Nombre, Año y estado");
         }
-         */
+
         
         
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
-        /*Franco
+
         jtNombreMateria.setText("");
         jtAnioMateria.setText("");
         MateriaData md = new MateriaData(conexion);
@@ -211,22 +211,22 @@ public class MateriaView extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Id a buscar vacio, por favor ingrese un valor");
         }
-         */
+ 
 
 
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
-        /*Franco
+
         MateriaData md = new MateriaData(conexion);
         md.borrarMateria(Integer.parseInt(jtCodigoMateria.getText()));
-         */
+
 
 
     }//GEN-LAST:event_jbBorrarActionPerformed
 
     private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
-        /*Franco
+
         MateriaData md = new MateriaData(conexion);
         if (!"".equals(jtNombreMateria.getText()) && !"".equals(jtAnioMateria.getText())) {
             Materia mate = new Materia(jtNombreMateria.getText(), Integer.parseInt(jtAnioMateria.getText()), jcEstado.isSelected());
@@ -234,7 +234,7 @@ public class MateriaView extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Revise los campos: Nombre, Año y estado");
         }
-         */
+
 
 
     }//GEN-LAST:event_jbActualizarActionPerformed

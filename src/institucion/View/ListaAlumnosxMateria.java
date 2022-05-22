@@ -5,13 +5,13 @@
 package institucion.View;
 
 
-/*Franco
+
 import institucion.Controlador.InscripcionData;
 import institucion.Controlador.MateriaData;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
 import institucion.Modelo.Alumno;
- */
+
 import institucion.Controlador.Conexion;
 
 import institucion.Modelo.Materia;
@@ -24,25 +24,25 @@ public class ListaAlumnosxMateria extends javax.swing.JInternalFrame {
 
     Conexion conexion = new Conexion();
 
-    /*Franco
+
     private List<Alumno> alumnos;
     private List<Materia> materias;
-     */
+
     /**
      * Creates new form jListaAlumnosxMateria
      */
     public ListaAlumnosxMateria() throws ClassNotFoundException {
         initComponents();
 
-        /* Franco
+
         this.alumnos = null;
         MateriaData md = new MateriaData(conexion);
         this.materias = md.obtenerMaterias();
         agregarMateria();
-         */
+
     }
 
-    /*Franco
+
     private void agregarMateria() {
         for (Materia m1 : materias) {
 
@@ -51,7 +51,7 @@ public class ListaAlumnosxMateria extends javax.swing.JInternalFrame {
         }
 
     }
-     */
+
     
     
  /*
@@ -145,7 +145,7 @@ public class ListaAlumnosxMateria extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cMateriaActionPerformed
-        /*Franco
+
         InscripcionData id = new InscripcionData(conexion);
         alumnos=id.obtenerAlumnosXMateria(((Materia) cMateria.getSelectedItem()).getIdMateria());
 
@@ -155,7 +155,7 @@ public class ListaAlumnosxMateria extends javax.swing.JInternalFrame {
         for (Alumno m1 : alumnos) {            
         model.addRow(new Object[]{m1.getIdAlumno(), m1.getNombre(), m1.getApellido(),m1.getFechaNac()});            
         }
-         */
+
         
         
         

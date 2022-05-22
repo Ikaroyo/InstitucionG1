@@ -108,9 +108,9 @@ public class AlumnoData {
             int rs = ps.executeUpdate();
 
             if (rs > 0) {
-                JOptionPane.showMessageDialog(null, "id borrado ");
+                JOptionPane.showMessageDialog(null, "Alumno borrado exitosamente ");
             } else {
-                JOptionPane.showMessageDialog(null, "id no existe ");
+                JOptionPane.showMessageDialog(null, "No se puede borrar, alumno inexistente ");
             }
 
             ps.close();
