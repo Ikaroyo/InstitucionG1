@@ -10,6 +10,7 @@ import institucion.Controlador.InscripcionData;
 import institucion.Modelo.Alumno;
 import institucion.Modelo.Inscripcion;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -161,9 +162,16 @@ public class CargaNotas extends javax.swing.JInternalFrame {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
         
-        for (Inscripcion i1 : inscripciones) {
+        if (!inscripciones.isEmpty()){
+            for (Inscripcion i1 : inscripciones) {
+            
             model.addRow(new Object[]{i1.getMateria().getIdMateria(), i1.getMateria().getNombre(), i1.getNota()});
+            
         }
+        }else{
+            JOptionPane.showMessageDialog(null,"No tiene inscripciones activas");
+        }
+        
 
     }//GEN-LAST:event_jcAlumnoNotaActionPerformed
 
