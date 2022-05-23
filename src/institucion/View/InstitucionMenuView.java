@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class InstitucionMenuView extends javax.swing.JFrame {
 
-    public boolean adminUser=true;
+    public boolean adminUser;
 
     /**
      * Creates new form InstituicionMenuView
@@ -24,7 +24,7 @@ public class InstitucionMenuView extends javax.swing.JFrame {
         initComponents();
         setSize(875, 700);
         setLocationRelativeTo(null);
-        //adminUser = isAdministrador();
+        adminUser = isAdministrador();
     }
 
     boolean isAdministrador() {
