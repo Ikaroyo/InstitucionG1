@@ -281,7 +281,7 @@ public class InscripcionView extends javax.swing.JInternalFrame {
         if (!inscripciones.isEmpty()) {
             for (Inscripcion i1 : inscripciones) {
 
-                model.addRow(new Object[]{i1.getMateria().getIdMateria(), i1.getMateria().getNombre(), i1.getNota()});
+                model.addRow(new Object[]{i1.getMateria().getIdMateria(), i1.getMateria().getNombre(), i1.getMateria().getAnioMateria()});
 
             }
         } else {

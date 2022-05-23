@@ -44,7 +44,7 @@ public class MateriaData {
 
             JOptionPane.showMessageDialog(null, " Se genero la materia exitosamente");
 
-            if (rs.next()) {
+            if (rs.next()) { 
                 materia.setIdMateria(rs.getInt(1));
             } else {
                 JOptionPane.showMessageDialog(null, "Error, no se pudo generar la materia");
@@ -76,7 +76,7 @@ public class MateriaData {
 
             }
             if (Objects.isNull(materia)) {
-                JOptionPane.showMessageDialog(null, " Materia no encontrada");
+                JOptionPane.showMessageDialog(null, " Materia no encontrada: inexistente");
 //            }else {
 //                            JOptionPane.showMessageDialog(null, " Materia encontrada :"+" "+ materia.getNombre());
             }
@@ -104,7 +104,7 @@ public class MateriaData {
             int rs = ps.executeUpdate();
 
             if (rs > 0) {
-                JOptionPane.showMessageDialog(null, "Se modifico correctamente la materia");
+                JOptionPane.showMessageDialog(null, "Actualizacion exitosa");
             } else {
                 JOptionPane.showMessageDialog(null, "Error, la materia ingresada no existe");
             }

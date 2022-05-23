@@ -255,6 +255,7 @@ public class MateriaView extends javax.swing.JInternalFrame {
         if (!"".equals(jtNombreMateria.getText()) && !"".equals(jtAnioMateria.getText())) {
             Materia mate = new Materia(jtNombreMateria.getText(), Integer.parseInt(jtAnioMateria.getText()), jcEstado.isSelected());
             md.modificarMateria(mate, Integer.parseInt(jtCodigoMateria.getText()));
+       
         } else {
             JOptionPane.showMessageDialog(null, "Revise los campos: Nombre, Año y estado");
         }
