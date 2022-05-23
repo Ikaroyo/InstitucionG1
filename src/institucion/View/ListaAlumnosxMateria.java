@@ -154,11 +154,8 @@ public class ListaAlumnosxMateria extends javax.swing.JInternalFrame {
 
         for (Alumno m1 : alumnos) {            
         model.addRow(new Object[]{m1.getIdAlumno(), m1.getNombre(), m1.getApellido(),m1.getFechaNac()});            
-        }
-
-        
-        
-        
+        }    
+                
 
     }//GEN-LAST:event_cMateriaActionPerformed
 

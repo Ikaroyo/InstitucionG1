@@ -5,15 +5,12 @@
  */
 package institucion.View;
 
-
 import institucion.Controlador.MateriaData;
 import institucion.Modelo.Materia;
 import java.util.Objects;
 import javax.swing.JOptionPane;
 
-
 import institucion.Controlador.Conexion;
-
 
 /**
  *
@@ -28,6 +25,25 @@ public class MateriaView extends javax.swing.JInternalFrame {
      */
     public MateriaView() throws ClassNotFoundException {
         initComponents();
+        agregarOModificar();
+    }
+
+    private void agregarOModificar() {
+        String[] options = {"Agregar Materia", "Buscar/Modificar/Actualizar Materia"};
+
+        int x = JOptionPane.showOptionDialog(null, "¿Que desea realizar?",
+                "Selecciona una opcion",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+        boolean layoutBoolean = x == 0;
+
+        jbGuardar.setEnabled(layoutBoolean);
+        jtCodigoMateria.setEnabled(!layoutBoolean);
+        jbBuscar.setEnabled(!layoutBoolean);
+        jbBorrar.setEnabled(false);
+        jbActualizar.setEnabled(false);
+        // estado True por defecto en guardar
+        jcEstado.setSelected(layoutBoolean);
+
     }
 
     /**
@@ -78,6 +94,11 @@ public class MateriaView extends javax.swing.JInternalFrame {
         });
 
         jbLimpiar.setText("Limpiar");
+        jbLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbLimpiarActionPerformed(evt);
+            }
+        });
 
         jbActualizar.setText("Actualizar");
         jbActualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -188,12 +209,12 @@ public class MateriaView extends javax.swing.JInternalFrame {
         if (!"".equals(jtNombreMateria.getText()) && !"".equals(jtAnioMateria.getText()) && jcEstado.isSelected()) {
             Materia mate = new Materia(jtNombreMateria.getText(), Integer.parseInt(jtAnioMateria.getText()), jcEstado.isSelected());
             md.guardarMateria(mate);
+            jtCodigoMateria.setText(Integer.toString(mate.getIdMateria()));
         } else {
             JOptionPane.showMessageDialog(null, "Revise los campos: Nombre, Año y estado");
         }
 
-        
-        
+
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
@@ -207,11 +228,15 @@ public class MateriaView extends javax.swing.JInternalFrame {
                 jtNombreMateria.setText(mate.getNombre());
                 jtAnioMateria.setText(Integer.toString(mate.getAnioMateria()));
                 jcEstado.setSelected(mate.isActivo());
+                jbBorrar.setEnabled(true);
+                jbActualizar.setEnabled(true);
+                jbGuardar.setEnabled(false);
+            } else {
+                jcEstado.setSelected(false);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Id a buscar vacio, por favor ingrese un valor");
         }
- 
 
 
     }//GEN-LAST:event_jbBuscarActionPerformed
@@ -220,7 +245,6 @@ public class MateriaView extends javax.swing.JInternalFrame {
 
         MateriaData md = new MateriaData(conexion);
         md.borrarMateria(Integer.parseInt(jtCodigoMateria.getText()));
-
 
 
     }//GEN-LAST:event_jbBorrarActionPerformed
@@ -236,9 +260,21 @@ public class MateriaView extends javax.swing.JInternalFrame {
         }
 
 
-
     }//GEN-LAST:event_jbActualizarActionPerformed
 
+    private void jbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimpiarActionPerformed
+        limpiar();
+    }//GEN-LAST:event_jbLimpiarActionPerformed
+
+    private void limpiar() {
+
+        jtCodigoMateria.setText("");
+        jtNombreMateria.setText("");
+        jtAnioMateria.setText("");
+        jcEstado.setSelected(false);
+        agregarOModificar();
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jAnio;

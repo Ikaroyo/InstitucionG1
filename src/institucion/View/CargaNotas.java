@@ -44,7 +44,7 @@ public class CargaNotas extends javax.swing.JInternalFrame {
             jcAlumnoNota.addItem(a1);
 
         }
-        
+
     }
 
     /**
@@ -81,11 +81,11 @@ public class CargaNotas extends javax.swing.JInternalFrame {
                 {null, null, null}
             },
             new String [] {
-                "ID", "Materia", "Nota"
+                "ID Materia", "Materia", "Nota"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -95,8 +95,18 @@ public class CargaNotas extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jbCancelar.setText("Cancelar");
+        jbCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCancelarActionPerformed(evt);
+            }
+        });
 
         jbGuardar.setText("Guardar");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
 
         jcAlumnoNota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,19 +171,33 @@ public class CargaNotas extends javax.swing.JInternalFrame {
 
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
-        
-        if (!inscripciones.isEmpty()){
+
+        if (!inscripciones.isEmpty()) {
             for (Inscripcion i1 : inscripciones) {
-            
-            model.addRow(new Object[]{i1.getMateria().getIdMateria(), i1.getMateria().getNombre(), i1.getNota()});
-            
+
+                model.addRow(new Object[]{i1.getMateria().getIdMateria(), i1.getMateria().getNombre(), i1.getNota()});
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No tiene inscripciones activas");
         }
-        }else{
-            JOptionPane.showMessageDialog(null,"No tiene inscripciones activas");
-        }
-        
+
 
     }//GEN-LAST:event_jcAlumnoNotaActionPerformed
+
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+
+        InscripcionData id = new InscripcionData(conexion);
+        int i;
+        for (i=0; i < jTable1.getRowCount(); i++){
+            id.actualizarNotaCursada(((Alumno) jcAlumnoNota.getSelectedItem()).getIdAlumno(),Integer.parseInt(jTable1.getValueAt(i, 0).toString()),Double.parseDouble(jTable1.getValueAt(i, 2).toString()));
+        }
+
+    }//GEN-LAST:event_jbGuardarActionPerformed
+
+    private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
+        dispose();
+    }//GEN-LAST:event_jbCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

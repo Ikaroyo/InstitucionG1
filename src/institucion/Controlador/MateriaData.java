@@ -21,6 +21,7 @@ import javax.swing.JOptionPane;
  * @author Barbara
  */
 public class MateriaData {
+
     private Connection con = null;
 
     public MateriaData(Conexion conexion) {
@@ -74,8 +75,8 @@ public class MateriaData {
                 materia.setActivo(rs.getBoolean("activo"));
 
             }
-            if (Objects.isNull(materia)){
-                            JOptionPane.showMessageDialog(null, " Materia no encontrada");
+            if (Objects.isNull(materia)) {
+                JOptionPane.showMessageDialog(null, " Materia no encontrada");
 //            }else {
 //                            JOptionPane.showMessageDialog(null, " Materia encontrada :"+" "+ materia.getNombre());
             }
@@ -126,7 +127,7 @@ public class MateriaData {
             int rs = ps.executeUpdate();
 
             if (rs > 0) {
-                JOptionPane.showMessageDialog(null, "Materia borrada exitosamente" );
+                JOptionPane.showMessageDialog(null, "Materia borrada exitosamente");
             } else {
                 JOptionPane.showMessageDialog(null, "Error, ingresÃ³ una materia inexistente ");
             }
@@ -184,8 +185,8 @@ public class MateriaData {
 
         }
     }
-    
-        public void desactivarMateria(int idMateria) {
+
+    public void desactivarMateria(int idMateria) {
 
         String sql = "UPDATE materia SET activo =0 WHERE idMateria=?";
         try {
@@ -207,5 +208,4 @@ public class MateriaData {
         }
     }
 
-    
 }

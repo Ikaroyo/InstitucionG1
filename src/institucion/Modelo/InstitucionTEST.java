@@ -5,15 +5,11 @@
  */
 package institucion.Modelo;
 
-import institucion.*;
 import institucion.Controlador.AlumnoData;
 import institucion.Controlador.Conexion;
 import institucion.Controlador.InscripcionData;
 import institucion.Controlador.MateriaData;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -38,9 +34,7 @@ public class InstitucionTEST {
 
 //-----------------------------------------------------------------------------------------------------
 // SE CREA SIN ID = CLASES MODELO // SE RELACIONA POR ID = INSCRIPCION DATA//
-
 //---------------------------------PRUEBAS ALUMNODATA--------------------------------------------//
-
             Alumno alumno1 = new Alumno(2, "Fariolli", "Santiago", LocalDate.of(1987, 7, 13), true);
 
 //            System.out.println(alumno1);
@@ -122,9 +116,7 @@ public class InstitucionTEST {
 //              md1.desactivarMateria(1);
 //--------------------------------------------------------------------------------------------//
 //              md.modificarMateria(new Materia ("Laboratorio 2",3,true) , 6);
-
 //---------------------------------PRUEBAS INSCRIPCIONDATA------------------------------------// 
-
             Inscripcion inscripcion1 = new Inscripcion(alumno1, m3, 0);
 //               id.guardarInscripcion(inscripcion1);
 //

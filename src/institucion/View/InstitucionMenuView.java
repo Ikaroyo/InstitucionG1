@@ -143,7 +143,7 @@ public class InstitucionMenuView extends javax.swing.JFrame {
 
         jConsultas.setText("Consultas");
 
-        jListadodeAlumnosxMateria.setText("Listado de Alumnos x Materia");
+        jListadodeAlumnosxMateria.setText("Listado de Alumnos por Materia");
         jListadodeAlumnosxMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jListadodeAlumnosxMateriaActionPerformed(evt);
