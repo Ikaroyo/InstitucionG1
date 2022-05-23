@@ -36,10 +36,12 @@ public class InscripcionView extends javax.swing.JInternalFrame {
     }
 
     private void agregarAlumnos() {
-        jComboALUMNO.removeAllItems();;
-        AlumnoData ad = new AlumnoData(conexion);
-        this.alumnos = ad.obtenerAlumnos();
 
+        jComboALUMNO.removeAllItems();
+
+        AlumnoData ad = new AlumnoData(conexion);
+
+        this.alumnos = ad.obtenerAlumnos();
         for (Alumno a1 : alumnos) {
 
             jComboALUMNO.addItem(a1);
@@ -222,6 +224,8 @@ public class InscripcionView extends javax.swing.JInternalFrame {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
         rellenarTablaInscriptos();
+        jbInscribir.setEnabled(false);
+        jbAnularInscripcion.setEnabled(true);
     }//GEN-LAST:event_jcbInscriptasActionPerformed
 
     private void jcbNoInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbNoInscriptasActionPerformed
@@ -229,6 +233,8 @@ public class InscripcionView extends javax.swing.JInternalFrame {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
         rellenarTablaNoInscriptos();
+        jbInscribir.setEnabled(true);
+        jbAnularInscripcion.setEnabled(false);
     }//GEN-LAST:event_jcbNoInscriptasActionPerformed
 
     private void jComboALUMNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboALUMNOActionPerformed
@@ -250,18 +256,18 @@ public class InscripcionView extends javax.swing.JInternalFrame {
     private void jbInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInscribirActionPerformed
         InscripcionData id = new InscripcionData(conexion);
         MateriaData md = new MateriaData(conexion);
-        Alumno ac =(Alumno) jComboALUMNO.getSelectedItem();
-        Materia mc= md.buscarMateria((int) jTable1.getValueAt((int) jTable1.getSelectedRow(), 0));
-        Inscripcion ic = new Inscripcion(ac,mc,0);
+        Alumno ac = (Alumno) jComboALUMNO.getSelectedItem();
+        Materia mc = md.buscarMateria((int) jTable1.getValueAt((int) jTable1.getSelectedRow(), 0));
+        Inscripcion ic = new Inscripcion(ac, mc, 0);
         id.guardarInscripcion(ic);
         rellenarTablaNoInscriptos();
     }//GEN-LAST:event_jbInscribirActionPerformed
 
     private void jbAnularInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAnularInscripcionActionPerformed
         InscripcionData id = new InscripcionData(conexion);
-        int idAlumno =((Alumno) jComboALUMNO.getSelectedItem()).getIdAlumno();
+        int idAlumno = ((Alumno) jComboALUMNO.getSelectedItem()).getIdAlumno();
         int idMateria = (int) jTable1.getValueAt((int) jTable1.getSelectedRow(), 0);
-        id.borrarInscripcionDeUnaMateriaDeunAlumno(idAlumno,idMateria);
+        id.borrarInscripcionDeUnaMateriaDeunAlumno(idAlumno, idMateria);
         rellenarTablaInscriptos();
     }//GEN-LAST:event_jbAnularInscripcionActionPerformed
 
