@@ -164,6 +164,7 @@ public class InscripcionData {
                 materia = new Materia();
                 materia.setIdMateria(resultSet.getInt("idMateria"));
                 materia.setNombre(resultSet.getString("nombre"));
+                materia.setAnioMateria(resultSet.getInt("anioMateria"));
                 materias.add(materia);
 
                 JOptionPane.showMessageDialog(null, "El alumno esta inscripto en :" + " " + materia.getNombre());
@@ -191,6 +192,7 @@ public class InscripcionData {
                 materia = new Materia();
                 materia.setIdMateria(resultSet.getInt("idMateria"));
                 materia.setNombre(resultSet.getString("nombre"));
+                materia.setAnioMateria(resultSet.getInt("anioMateria"));
                 materias.add(materia);
                 //JOptionPane.showMessageDialog(null, "El no alumno esta inscripto en :" + " " + materia.getNombre());
             }
