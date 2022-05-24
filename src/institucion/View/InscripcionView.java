@@ -125,6 +125,7 @@ public class InscripcionView extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jbAnularInscripcion.setText("Anular Inscripcion");
+        jbAnularInscripcion.setEnabled(false);
         jbAnularInscripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbAnularInscripcionActionPerformed(evt);
@@ -132,6 +133,7 @@ public class InscripcionView extends javax.swing.JInternalFrame {
         });
 
         jbInscribir.setText("Inscribir");
+        jbInscribir.setEnabled(false);
         jbInscribir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbInscribirActionPerformed(evt);
