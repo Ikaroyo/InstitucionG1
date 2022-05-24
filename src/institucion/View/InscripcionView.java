@@ -22,9 +22,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class InscripcionView extends javax.swing.JInternalFrame {
 
+    DefaultTableModel model;
     Conexion conexion = new Conexion();
-    private List<Alumno> alumnos = null;
-    private List<Inscripcion> inscripciones = null;
+    private List<Alumno> alumnos;
+    private List<Inscripcion> inscripciones;
     private List<Materia> materias;
 
     /**
@@ -33,6 +34,8 @@ public class InscripcionView extends javax.swing.JInternalFrame {
     public InscripcionView() throws ClassNotFoundException {
         initComponents();
         agregarAlumnos();
+        model = (DefaultTableModel) jTable1.getModel();
+
     }
 
     private void agregarAlumnos() {
@@ -216,11 +219,12 @@ public class InscripcionView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void limpiarTabla() {
+        model.setRowCount(0);
+    }
     private void jComboALUMNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboALUMNOActionPerformed
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.setRowCount(0);
+        limpiarTabla();
 
-        model.setRowCount(0);
         if (jrInscriptas.isSelected()) {
             rellenarTablaInscriptos();
         } else {
@@ -253,8 +257,7 @@ public class InscripcionView extends javax.swing.JInternalFrame {
     private void jrNoInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrNoInscriptasActionPerformed
         jrNoInscriptas.setSelected(true);
         jrInscriptas.setSelected(false);
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.setRowCount(0);
+        limpiarTabla();
         rellenarTablaInscriptos();
         jbInscribir.setEnabled(false);
         jbAnularInscripcion.setEnabled(true);
@@ -263,8 +266,7 @@ public class InscripcionView extends javax.swing.JInternalFrame {
     private void jrInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrInscriptasActionPerformed
         jrInscriptas.setSelected(true);
         jrNoInscriptas.setSelected(false);
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.setRowCount(0);
+        limpiarTabla();
         rellenarTablaNoInscriptos();
         jbInscribir.setEnabled(true);
         jbAnularInscripcion.setEnabled(false);
@@ -274,8 +276,7 @@ public class InscripcionView extends javax.swing.JInternalFrame {
         InscripcionData id = new InscripcionData(conexion);
         inscripciones = id.obtenerInscripcionesXAlumno(((Alumno) jComboALUMNO.getSelectedItem()).getIdAlumno());
 
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.setRowCount(0);
+        limpiarTabla();
 
         if (!inscripciones.isEmpty()) {
             for (Inscripcion i1 : inscripciones) {

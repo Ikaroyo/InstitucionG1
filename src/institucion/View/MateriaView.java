@@ -35,7 +35,10 @@ public class MateriaView extends javax.swing.JInternalFrame {
                 "Selecciona una opcion",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
         boolean layoutBoolean = x == 0;
+        layoutInicial(layoutBoolean);
+    }
 
+    private void layoutInicial(boolean layoutBoolean) {
         jbGuardar.setEnabled(layoutBoolean);
         jtCodigoMateria.setEnabled(!layoutBoolean);
         jbBuscar.setEnabled(!layoutBoolean);
@@ -43,7 +46,6 @@ public class MateriaView extends javax.swing.JInternalFrame {
         jbActualizar.setEnabled(false);
         // estado True por defecto en guardar
         jcEstado.setSelected(layoutBoolean);
-
     }
 
     /**
@@ -218,21 +220,32 @@ public class MateriaView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
-
+        // limpieza de campos 
         jtNombreMateria.setText("");
         jtAnioMateria.setText("");
+        
+        
         MateriaData md = new MateriaData(conexion);
+        
         if (!"".equals(jtCodigoMateria.getText())) {
+            
             Materia mate = md.buscarMateria(Integer.parseInt(jtCodigoMateria.getText()));
+            
             if (!Objects.isNull(mate)) {
+                // Rellenado de campos luego de buscar
+                
                 jtNombreMateria.setText(mate.getNombre());
                 jtAnioMateria.setText(Integer.toString(mate.getAnioMateria()));
                 jcEstado.setSelected(mate.isActivo());
                 jbBorrar.setEnabled(true);
                 jbActualizar.setEnabled(true);
                 jbGuardar.setEnabled(false);
+                
+                
             } else {
+                
                 jcEstado.setSelected(false);
+                
             }
         } else {
             JOptionPane.showMessageDialog(null, "Id a buscar vacio, por favor ingrese un valor");
@@ -252,10 +265,11 @@ public class MateriaView extends javax.swing.JInternalFrame {
     private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
 
         MateriaData md = new MateriaData(conexion);
+        
         if (!"".equals(jtNombreMateria.getText()) && !"".equals(jtAnioMateria.getText())) {
             Materia mate = new Materia(jtNombreMateria.getText(), Integer.parseInt(jtAnioMateria.getText()), jcEstado.isSelected());
             md.modificarMateria(mate, Integer.parseInt(jtCodigoMateria.getText()));
-       
+
         } else {
             JOptionPane.showMessageDialog(null, "Revise los campos: Nombre, Año y estado");
         }

@@ -20,8 +20,8 @@ import javax.swing.table.DefaultTableModel;
 public class CargaNotas extends javax.swing.JInternalFrame {
 
     Conexion conexion = new Conexion();
-    private List<Alumno> alumnos = null;
-    private List<Inscripcion> inscripciones = null;
+    private List<Alumno> alumnos;
+    private List<Inscripcion> inscripciones;
 
     /**
      * Creates new form CargaNotas
@@ -35,7 +35,7 @@ public class CargaNotas extends javax.swing.JInternalFrame {
     }
 
     private void agregarAlumnos() {
-        jcAlumnoNota.removeAllItems();;
+        jcAlumnoNota.removeAllItems();
         AlumnoData ad = new AlumnoData(conexion);
         this.alumnos = ad.obtenerAlumnos();
 

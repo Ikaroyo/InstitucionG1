@@ -4,8 +4,6 @@
  */
 package institucion.View;
 
-
-
 import institucion.Controlador.InscripcionData;
 import institucion.Controlador.MateriaData;
 import javax.swing.table.DefaultTableModel;
@@ -24,7 +22,6 @@ public class ListaAlumnosxMateria extends javax.swing.JInternalFrame {
 
     Conexion conexion = new Conexion();
 
-
     private List<Alumno> alumnos;
     private List<Materia> materias;
 
@@ -34,27 +31,24 @@ public class ListaAlumnosxMateria extends javax.swing.JInternalFrame {
     public ListaAlumnosxMateria() throws ClassNotFoundException {
         initComponents();
 
-
-        this.alumnos = null;
-        MateriaData md = new MateriaData(conexion);
-        this.materias = md.obtenerMaterias();
         agregarMateria();
 
     }
 
-
     private void agregarMateria() {
+
+        MateriaData md = new MateriaData(conexion);
+        this.materias = md.obtenerMaterias();
+
         for (Materia m1 : materias) {
 
             cMateria.addItem(m1);
-            
+
         }
 
     }
 
-    
-    
- /*
+    /*
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -147,15 +141,15 @@ public class ListaAlumnosxMateria extends javax.swing.JInternalFrame {
     private void cMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cMateriaActionPerformed
 
         InscripcionData id = new InscripcionData(conexion);
-        alumnos=id.obtenerAlumnosXMateria(((Materia) cMateria.getSelectedItem()).getIdMateria());
+        alumnos = id.obtenerAlumnosXMateria(((Materia) cMateria.getSelectedItem()).getIdMateria());
 
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
 
-        for (Alumno m1 : alumnos) {            
-        model.addRow(new Object[]{m1.getIdAlumno(), m1.getNombre(), m1.getApellido(),m1.getFechaNac()});            
-        }    
-                
+        for (Alumno m1 : alumnos) {
+            model.addRow(new Object[]{m1.getIdAlumno(), m1.getNombre(), m1.getApellido(), m1.getFechaNac()});
+        }
+
 
     }//GEN-LAST:event_cMateriaActionPerformed
 
