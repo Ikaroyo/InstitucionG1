@@ -78,7 +78,7 @@ public class MateriaData {
             if (Objects.isNull(materia)) {
                 JOptionPane.showMessageDialog(null, " Materia no encontrada: inexistente");
 //            }else {
-//                            JOptionPane.showMessageDialog(null, " Materia encontrada :"+" "+ materia.getNombre());
+//            JOptionPane.showMessageDialog(null, " Materia encontrada :"+" "+ materia.getNombre());
             }
 
             ps.close();
