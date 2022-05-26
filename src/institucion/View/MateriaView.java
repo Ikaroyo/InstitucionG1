@@ -44,7 +44,8 @@ public class MateriaView extends javax.swing.JInternalFrame {
         jbBuscar.setEnabled(!layoutBoolean);
         jbBorrar.setEnabled(false);
         jbActualizar.setEnabled(false);
-        // estado True por defecto en guardar
+        
+        // estado True por defecto en guardar para que no se guarde en estado inactiva
         jcEstado.setSelected(layoutBoolean);
     }
 

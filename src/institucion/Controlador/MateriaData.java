@@ -44,7 +44,7 @@ public class MateriaData {
 
             JOptionPane.showMessageDialog(null, " Se genero la materia exitosamente");
 
-            if (rs.next()) { 
+            if (rs.next()) {
                 materia.setIdMateria(rs.getInt(1));
             } else {
                 JOptionPane.showMessageDialog(null, "Error, no se pudo generar la materia");
@@ -60,7 +60,12 @@ public class MateriaData {
     public Materia buscarMateria(int idMateria) {
         Materia materia = null;
 
-        String sql = "SELECT * FROM materia WHERE idMateria =? AND  activo =1;";
+        // el siguiente String es el realizado en clases, pero no realiza busquedas de materias inactivas
+        // que pudieran ser reactivadas, por eso lo modificamos
+        //String sql = "SELECT * FROM materia WHERE idMateria =? AND  activo =1;";
+        
+        // el siguiente string si contempla las materias inactivas o activo=0;
+        String sql = "SELECT * FROM materia WHERE idMateria =?;";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
