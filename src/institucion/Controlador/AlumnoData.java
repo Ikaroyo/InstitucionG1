@@ -135,9 +135,9 @@ public class AlumnoData {
             int rs = ps.executeUpdate();
 
             if (rs > 0) {
-                JOptionPane.showMessageDialog(null, " se modifico ");
+                JOptionPane.showMessageDialog(null, " Alumno actualizado se exitosamente ");
             } else {
-                JOptionPane.showMessageDialog(null, " no se modifico ");
+                JOptionPane.showMessageDialog(null, " Alumno: No se pudo actualizar ");
             }
 
             ps.close();

@@ -161,10 +161,6 @@ public class InscripcionView extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(41, 323, Short.MAX_VALUE)
-                .addComponent(jMATERIAS)
-                .addGap(120, 120, 120))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -190,8 +186,11 @@ public class InscripcionView extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jbAnularInscripcion)
                         .addGap(18, 18, 18)
-                        .addComponent(jbSalir)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jbSalir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(194, 194, 194)
+                        .addComponent(jMATERIAS)))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,7 +213,7 @@ public class InscripcionView extends javax.swing.JInternalFrame {
                     .addComponent(jbAnularInscripcion)
                     .addComponent(jbSalir)
                     .addComponent(jbInscribir))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         pack();
