@@ -36,6 +36,7 @@ public class InscripcionView extends javax.swing.JInternalFrame {
         agregarAlumnos();
         model = (DefaultTableModel) jTable1.getModel();
 
+
     }
 
     private void agregarAlumnos() {
