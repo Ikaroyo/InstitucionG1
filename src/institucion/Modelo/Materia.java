@@ -75,7 +75,7 @@ public class Materia {
     
     @Override
     public String toString() {
-        return nombre + " - Año Materia:" + anioMateria;
+        return idMateria+"-"+ nombre + " - Año Materia:" + anioMateria;
     }
 
 }    

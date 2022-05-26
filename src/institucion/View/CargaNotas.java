@@ -189,10 +189,10 @@ public class CargaNotas extends javax.swing.JInternalFrame {
 
         InscripcionData id = new InscripcionData(conexion);
         int i;
-        for (i=0; i < jTable1.getRowCount(); i++){
-            id.actualizarNotaCursada(((Alumno) jcAlumnoNota.getSelectedItem()).getIdAlumno(),Integer.parseInt(jTable1.getValueAt(i, 0).toString()),Double.parseDouble(jTable1.getValueAt(i, 2).toString()));
+        for (i = 0; i < jTable1.getRowCount(); i++) {
+            id.actualizarNotaCursada(((Alumno) jcAlumnoNota.getSelectedItem()).getIdAlumno(), Integer.parseInt(jTable1.getValueAt(i, 0).toString()), Double.parseDouble(jTable1.getValueAt(i, 2).toString()));
         }
-
+        JOptionPane.showMessageDialog(null, "Notas actualizadas");
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed

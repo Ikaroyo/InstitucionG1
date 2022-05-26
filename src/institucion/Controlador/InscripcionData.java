@@ -240,7 +240,7 @@ public class InscripcionData {
 
             statement.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Nota actualizada");
+//            JOptionPane.showMessageDialog(null, "Nota actualizada");
             statement.close();
 
         } catch (SQLException ex) {
