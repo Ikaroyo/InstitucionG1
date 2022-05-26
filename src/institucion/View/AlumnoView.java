@@ -50,7 +50,7 @@ public class AlumnoView extends javax.swing.JInternalFrame {
         jbBorrar.setEnabled(false);
         jbActualizar.setEnabled(false);
         // estado True por defecto en guardar
-        jcEstado.setSelected(layoutBoolean);
+        jrbEstado.setSelected(layoutBoolean);
 
     }
 
@@ -73,12 +73,12 @@ public class AlumnoView extends javax.swing.JInternalFrame {
         jtApellidoAlumno = new javax.swing.JTextField();
         jFechaNac = new javax.swing.JLabel();
         jtNombreAlumno = new javax.swing.JTextField();
-        jcEstado = new javax.swing.JCheckBox();
         jbLimpiar = new javax.swing.JButton();
         jbActualizar = new javax.swing.JButton();
         jbBorrar = new javax.swing.JButton();
         jbGuardar = new javax.swing.JButton();
         jcFechaN = new com.toedter.calendar.JDateChooser();
+        jrbEstado = new javax.swing.JRadioButton();
 
         setClosable(true);
 
@@ -116,8 +116,6 @@ public class AlumnoView extends javax.swing.JInternalFrame {
             }
         });
 
-        jcEstado.setText("Estado");
-
         jbLimpiar.setText("Limpiar");
         jbLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,6 +141,13 @@ public class AlumnoView extends javax.swing.JInternalFrame {
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbGuardarActionPerformed(evt);
+            }
+        });
+
+        jrbEstado.setText("Estado");
+        jrbEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbEstadoActionPerformed(evt);
             }
         });
 
@@ -177,10 +182,7 @@ public class AlumnoView extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jFechaNac)
                                 .addGap(18, 18, 18)
-                                .addComponent(jcFechaN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jcEstado)))
+                                .addComponent(jcFechaN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -191,6 +193,10 @@ public class AlumnoView extends javax.swing.JInternalFrame {
                 .addComponent(jbActualizar)
                 .addGap(18, 18, 18)
                 .addComponent(jbLimpiar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jrbEstado)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -217,15 +223,15 @@ public class AlumnoView extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jFechaNac)
                     .addComponent(jcFechaN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addComponent(jcEstado)
-                .addGap(26, 26, 26)
+                .addGap(33, 33, 33)
+                .addComponent(jrbEstado)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGuardar)
                     .addComponent(jbBorrar)
                     .addComponent(jbActualizar)
                     .addComponent(jbLimpiar))
-                .addGap(19, 42, Short.MAX_VALUE))
+                .addGap(19, 46, Short.MAX_VALUE))
         );
 
         pack();
@@ -255,7 +261,7 @@ public class AlumnoView extends javax.swing.JInternalFrame {
 //
         LocalDate fechNac = LocalDate.parse(fecha, formato2);
 //        
-        boolean estado = jcEstado.isSelected();
+        boolean estado = jrbEstado.isSelected();
 //        
         Alumno a = new Alumno(nombre, apellido, fechNac, estado);
         ad.guardarAlumno(a);
@@ -294,7 +300,7 @@ public class AlumnoView extends javax.swing.JInternalFrame {
             jcFechaN.setDate(date);
 
 // Devuelve estado activo//           
-            jcEstado.setSelected(encontrado.isActivo());
+            jrbEstado.setSelected(encontrado.isActivo());
 
 // BUSCAR : una vez encontrado://           
 // se bloquea idAlumno//
@@ -317,11 +323,16 @@ public class AlumnoView extends javax.swing.JInternalFrame {
         LocalDate fechaParseada = jcFechaN.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         
 // Creacion del alumno argumento
-        Alumno modificado = new Alumno(jtNombreAlumno.getText(), jtApellidoAlumno.getText(), fechaParseada, jcEstado.isSelected());
+        Alumno modificado = new Alumno(jtNombreAlumno.getText(), jtApellidoAlumno.getText(), fechaParseada, jrbEstado.isSelected());
         // Modificacion del alumno mediante AlumnoData
         ad.modificarAlumno(Integer.parseInt(jtidAlumno.getText()), modificado);
 
     }//GEN-LAST:event_jbActualizarActionPerformed
+
+    private void jrbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbEstadoActionPerformed
+        // TODO add your handling code here:
+    
+    }//GEN-LAST:event_jrbEstadoActionPerformed
 
     private void limpiar() {
 
@@ -329,7 +340,7 @@ public class AlumnoView extends javax.swing.JInternalFrame {
         jtApellidoAlumno.setText("");
         jtNombreAlumno.setText("");
         jcFechaN.setCalendar(null);
-        jcEstado.setSelected(false);
+        jrbEstado.setSelected(false);
         agregarOModificar();
 
     }
@@ -346,8 +357,8 @@ public class AlumnoView extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbLimpiar;
-    private javax.swing.JCheckBox jcEstado;
     private com.toedter.calendar.JDateChooser jcFechaN;
+    private javax.swing.JRadioButton jrbEstado;
     private javax.swing.JTextField jtApellidoAlumno;
     private javax.swing.JTextField jtNombreAlumno;
     private javax.swing.JTextField jtidAlumno;
