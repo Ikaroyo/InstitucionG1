@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-05-2022 a las 00:31:56
+-- Tiempo de generación: 26-05-2022 a las 22:12:49
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -45,7 +45,13 @@ INSERT INTO `alumno` (`idAlumno`, `nombre`, `apellido`, `fechaNac`, `activo`) VA
 (4, 'Borrello', 'Barbara', '1977-02-09', 0),
 (5, 'Borrello', 'Hector', '1949-01-05', 1),
 (6, 'Lopez', 'Jesica', '1989-05-30', 1),
-(7, 'Matilde', 'Villanueva', '1992-05-04', 1);
+(7, 'Matilde', 'Villanueva', '1992-05-04', 0),
+(8, 'Diego', 'Palacios', '1973-10-12', 1),
+(9, 'Javier', 'Zabala', '1992-05-14', 0),
+(10, 'Elina', 'Zarate', '1992-05-20', 0),
+(11, 'Tony', 'Stark', '1972-05-11', 1),
+(12, 'Nelso', 'Ucelay', '1971-05-10', 1),
+(13, 'Martin', 'Casco', '1986-05-15', 1);
 
 -- --------------------------------------------------------
 
@@ -65,10 +71,16 @@ CREATE TABLE `inscripcion` (
 --
 
 INSERT INTO `inscripcion` (`idInscripcion`, `idAlumno`, `idMateria`, `nota`) VALUES
-(6, 2, 3, 10),
-(7, 2, 3, 10),
+(6, 2, 3, 2),
+(7, 2, 3, 2),
 (9, 5, 2, 0),
-(10, 6, 1, 0);
+(10, 6, 1, 0),
+(11, 6, 4, 6),
+(12, 7, 4, 0),
+(13, 7, 4, 0),
+(14, 3, 4, 3),
+(15, 8, 4, 0),
+(16, 10, 4, 0);
 
 -- --------------------------------------------------------
 
@@ -88,12 +100,18 @@ CREATE TABLE `materia` (
 --
 
 INSERT INTO `materia` (`idMateria`, `nombre`, `anioMateria`, `activo`) VALUES
-(1, 'Matematica', 1, 0),
-(2, 'Web', 2, 1),
-(3, 'Laboratorio', 2, 1),
+(1, 'Matematica', 1, 1),
+(2, 'Web', 2, 0),
+(3, 'Laboratorio', 1, 1),
 (4, 'Ingles', 1, 1),
 (5, 'Eda', 2, 1),
-(6, 'Laboratorio 2', 3, 1);
+(6, 'Laboratorio 2', 3, 1),
+(7, 'Laboratorio', 5, 1),
+(8, 'Matematica', 2, 1),
+(9, 'Programacion', 1, 1),
+(10, 'Calculo Avanzado', 3, 1),
+(11, 'Estadistica', 2, 1),
+(12, 'Robotica', 1, 1);
 
 --
 -- Índices para tablas volcadas
@@ -127,19 +145,19 @@ ALTER TABLE `materia`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `idAlumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idAlumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `inscripcion`
 --
 ALTER TABLE `inscripcion`
-  MODIFY `idInscripcion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idInscripcion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `materia`
 --
 ALTER TABLE `materia`
-  MODIFY `idMateria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idMateria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restricciones para tablas volcadas
